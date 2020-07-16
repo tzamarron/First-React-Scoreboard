@@ -43,6 +43,7 @@ class Counter extends React.Component {
     //     };
     // }
 
+    // simpler way to make a constructor
     state = {
         score: 0,
     };
