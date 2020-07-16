@@ -29,11 +29,41 @@ class App extends Component {
     ]
   };
 
-  handleScoreChange = ( index, delta ) => {
+  // player id counter
+  prevPlayerId = 4;
+
+  handleScoreChange = (index, delta) => {
     this.setState(prevState => ({
       score: prevState.players[index].score += delta
     }));
   }
+
+  handleAddPlayer = (name) => {
+    this.setState(prevState => {
+      return {
+        players: [
+          ...prevState.players, // spread operator brings current array and merges with this one
+          {
+            name,
+            score: 0,
+            id: this.prevPlayerId += 1
+          }
+        ]
+      };
+    });
+  }
+
+  // another way to update players using concat()
+  // handleAddPlayer = (name) => {
+  //   let newPlayer = {
+  //     name,
+  //     score: 0,
+  //     id: this.prevPlayerId += 1
+  //   };
+  //   this.setState( prevState => ({
+  //     players: prevState.players.concat(newPlayer)
+  //   }));
+  // }
 
   handleRemovePlayer = (id) => {
     this.setState(prevState => {
@@ -52,7 +82,7 @@ class App extends Component {
         />
 
         {/* Players list */}
-        {this.state.players.map( (player, index) =>
+        {this.state.players.map((player, index) =>
           <Player
             name={player.name}
             score={player.score}
@@ -64,7 +94,7 @@ class App extends Component {
           />
         )}
 
-        <AddPlayerForm />
+        <AddPlayerForm addPlayer={this.handleAddPlayer} />
       </div>
     );
   }
