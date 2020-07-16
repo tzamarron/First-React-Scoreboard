@@ -9,7 +9,9 @@
 const Header = (props) => (
     <header>
         <h1>{props.title}</h1>
-        <span className="stats">Player : {props.totalPlayers}</span>
+        <span className="stats">
+            Player : {props.totalPlayers}
+        </span>
     </header>
 );
 
@@ -17,9 +19,16 @@ const Player = (props) => {
     return (
         <div className="player">
             <span className="player-name">
-                <button className="remove-player" onClick={() => props.removePlayer( props.id ) }>x</button>
-                { props.name }
-                </span>
+                <button c
+                    className="remove-player"
+                    onClick={() => props.removePlayer(props.id)}
+                >
+                    {" "}
+                    x
+                    {" "}
+                </button>
+                {props.name}
+            </span>
 
             <Counter />
         </div>
@@ -67,16 +76,20 @@ class Counter extends React.Component {
                     onClick={this.decrementScore}
                 >
                     {" "}
-          -
-        </button>
-                <span className="counter-score">{this.state.score}</span>
+                    -
+                    {" "}
+                </button>
+                <span className="counter-score">
+                    {this.state.score}
+                </span>
                 <button
                     className="counter-action increment"
                     onClick={this.incrementScore}
                 >
                     {" "}
-          -
-        </button>
+                    -
+                    {" "}
+                </button>
             </div>
         );
     }
