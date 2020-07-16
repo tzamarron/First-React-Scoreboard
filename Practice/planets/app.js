@@ -80,7 +80,7 @@ const Planet = (props) => (
         <h3>Planet Profile</h3>
         <ul>
             <li><strong>Diameter:</strong> { props.diameter } </li>
-            <li><strong>Moons:</strong> { props.moon }</li>
+            <li><strong>Moons:</strong> { props.moons }</li>
         </ul>
     </div>
 );
@@ -92,12 +92,13 @@ const Container = (props) => (
 <div className="container">
     { props.planetList.map( planet =>
         <Planet
+            { ...planet }
             key={ planet.id }
-            url={ planet.url }
-            name={ planet.name }
-            desc={ planet.desc }
-            diameter={ planet.diameter }
-            moon={ planet.moons }
+            // url={ planet.url }
+            // name={ planet.name }
+            // desc={ planet.desc }
+            // diameter={ planet.diameter }
+            // moon={ planet.moons }
         />
     ) }
 </div>
