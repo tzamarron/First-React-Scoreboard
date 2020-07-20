@@ -13,9 +13,11 @@ class StarRating extends Component {
     let stars = [];
     let maxRating = 5;
 
-    for(let i = 0; i < maxRating; i++) {
+    for (let i = 0; i < maxRating; i++) {
       stars.push(
-        <Star 
+        <Star
+          isSelected={this.state.rating > i}
+          setRating={() => this.handleRatingChange(i + 1)}
           key={i}
         />
       );
@@ -26,16 +28,19 @@ class StarRating extends Component {
 
   // Write an event handler that updates the rating state.
   // Pass the function to a Star component via props
-  handleRatingChange = (e) => {
-    this.setState({ rating: e.target.value })
-    
+  handleRatingChange = (rating) => {
+    if (this.state.rating === rating) {
+      this.setState({ rating: 0 });
+    } else {
+      this.setState({ rating })
+    }
   }
 
   render() {
     return (
       <ul className="course--stars">
         {/* Render the Star components */}
-        { this.renderStars() }
+        {this.renderStars()}
       </ul>
     );
   }
