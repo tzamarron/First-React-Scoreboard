@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import logo from './logo.svg';
 import './App.css';
 
 import StudentForm from './components/StudentForm';
+import Modal from './components/Modal';
 
 class App extends Component {
   render() {
@@ -13,6 +15,12 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <StudentForm />
+
+        <Modal>
+          <div className='modal'>
+            This is the Modal Window
+          </div>
+        </Modal>
       </div>
     );
   }
