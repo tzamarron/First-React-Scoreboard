@@ -7,13 +7,11 @@ import Footer from './Footer';
 
 class App extends Component {
   render() {
-    return (
-      <div className="App">
-        <Header />
-        <Teachers />
-        <Footer />
-      </div>
-    );
+    return [
+      <Header key='head' />,
+      <Teachers key='teach' />,
+      <Footer key='foot' />
+    ];
   }
 }
 
